@@ -107,10 +107,6 @@ export function InputSection({ state, onSubmit }: Props) {
     { key: "text", icon: Icons.text, label: "Text" },
   ];
 
-  const tabStyle = (active: boolean): React.CSSProperties => ({
-    color: active ? "#fff" : "#999",
-  });
-
   const inputStyle: React.CSSProperties = {
     width: "100%",
     padding: "14px 16px",
