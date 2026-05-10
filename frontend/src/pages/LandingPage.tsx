@@ -135,15 +135,15 @@ export function LandingPage() {
       <section className="el-overview">
         <h2 className="el-reveal">One platform built for <span className="gemini-text">every content format</span></h2>
 
-        <div className="el-overview-grid el-reveal d1">
-          <div className="el-overview-item">
+        <div className="el-overview-grid">
+          <div className="el-overview-item el-reveal from-left d1">
             <h3>Smart Processing</h3>
             <p>
               Extract and analyze content from PDFs, YouTube videos, and raw text
               with state-of-the-art AI models.
             </p>
           </div>
-          <div className="el-overview-item">
+          <div className="el-overview-item el-reveal from-right d2">
             <h3>Intelligent Output</h3>
             <p>
               Get organized key points, concise bullet summaries, and detailed
@@ -153,8 +153,8 @@ export function LandingPage() {
         </div>
 
         {/* Two preview cards */}
-        <div className="el-preview-cards el-reveal d2">
-          <div className="el-preview-card">
+        <div className="el-preview-cards">
+          <div className="el-preview-card el-reveal from-left d1">
             <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
               {/* Mini app preview - Input */}
               <div style={{ background: "#fff", borderRadius: 12, border: "1px solid rgba(0,0,0,0.08)", padding: 20, marginBottom: 16 }}>
@@ -177,7 +177,7 @@ export function LandingPage() {
             </div>
           </div>
 
-          <div className="el-preview-card">
+          <div className="el-preview-card el-reveal from-right d2">
             <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
               {/* Mini app preview - Output */}
               <div style={{ background: "#fff", borderRadius: 12, border: "1px solid rgba(0,0,0,0.08)", padding: 20, marginBottom: 16 }}>
@@ -222,9 +222,9 @@ export function LandingPage() {
         </div>
 
         {/* Two large feature cards */}
-        <div className="el-cards-row el-reveal d1">
+        <div className="el-cards-row">
           {/* Dark card - PDF */}
-          <div className="el-card-dark gradient-teal">
+          <div className="el-card-dark gradient-teal el-reveal from-left d1">
             <div className="el-card-content">
               <div className="el-card-mockup">
                 <div className="mock-doc">
@@ -252,7 +252,7 @@ export function LandingPage() {
           </div>
 
           {/* Light card - YouTube */}
-          <div className="el-card-light">
+          <div className="el-card-light el-reveal from-right d2">
             <div className="el-card-content">
               <div className="el-card-mockup">
                 <div className="mock-video">
@@ -324,9 +324,9 @@ export function LandingPage() {
         </div>
 
         {/* Two large feature cards (reversed layout) */}
-        <div className="el-cards-row reverse el-reveal d1">
+        <div className="el-cards-row reverse">
           {/* Light card - Summaries */}
-          <div className="el-card-light">
+          <div className="el-card-light el-reveal from-left d1">
             <div className="el-card-content">
               <div className="el-card-mockup">
                 <div className="mock-summary">
@@ -369,7 +369,7 @@ export function LandingPage() {
           </div>
 
           {/* Dark card - Chapter Breakdown */}
-          <div className="el-card-dark gradient-purple">
+          <div className="el-card-dark gradient-purple el-reveal from-right d2">
             <div className="el-card-content">
               <div className="el-card-mockup">
                 <div className="mock-keypoints">
@@ -433,14 +433,14 @@ export function LandingPage() {
       </section>
 
       {/* ━━━ STATS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="el-stats el-reveal">
+      <div className="el-stats">
         {[
-          { num: "3+", label: "Input formats supported" },
-          { num: "< 30s", label: "Average processing time" },
-          { num: "98%", label: "Extraction accuracy" },
-          { num: "∞", label: "Notes you can generate" },
-        ].map((s) => (
-          <div className="el-stat" key={s.label}>
+          { num: "3+", label: "Input formats supported", dir: "from-left" },
+          { num: "< 30s", label: "Average processing time", dir: "from-left" },
+          { num: "98%", label: "Extraction accuracy", dir: "from-right" },
+          { num: "∞", label: "Notes you can generate", dir: "from-right" },
+        ].map((s, idx) => (
+          <div className={`el-stat el-reveal ${s.dir} d${(idx % 2) + 1}`} key={s.label}>
             <h3>{s.num}</h3>
             <p>{s.label}</p>
           </div>

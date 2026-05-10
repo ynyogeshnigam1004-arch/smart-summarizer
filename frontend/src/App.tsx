@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate, useLocation, useNavigate } from "react-router-dom";
+import Lenis from "lenis";
 import "./design-tokens.css";
 import { LandingPage } from "./pages/LandingPage";
 import { DashboardPage } from "./pages/DashboardPage";
@@ -10,7 +12,7 @@ function NavBar() {
   const isLanding = location.pathname === "/";
 
   return (
-    <nav className="el-nav">
+    <nav className="el-nav" style={{ animation: "navFadeIn 0.8s cubic-bezier(0.16,1,0.3,1) both" }}>
       <a
         className="el-nav-logo"
         onClick={() => navigate("/")}
@@ -19,7 +21,7 @@ function NavBar() {
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
         </svg>
-        Smart Summarizer
+        <span className="gemini-text" style={{ paddingBottom: 0 }}>Smart Summarizer</span>
       </a>
 
       {isLanding && (
@@ -62,6 +64,29 @@ function NavBar() {
 }
 
 export default function App() {
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: "vertical",
+      gestureOrientation: "vertical",
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 2,
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   return (
     <BrowserRouter>
       <NavBar />
