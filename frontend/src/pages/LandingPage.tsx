@@ -95,15 +95,19 @@ export function LandingPage() {
     <div style={{ background: "#fff", fontFamily: "var(--font)" }}>
 
       {/* ━━━ HERO ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section className="el-hero">
-        <div className="el-hero-badge">
+      <section className="el-hero" style={{ position: "relative" }}>
+        <div className="gemini-glow" />
+        
+        <div className="el-hero-badge" style={{ position: "relative", zIndex: 1 }}>
           <span className="el-pulse-dot" />
           AI-POWERED SUMMARIZER
         </div>
 
-        <h1>Turn any content into<br />structured, intelligent notes</h1>
+        <h1 style={{ position: "relative", zIndex: 1 }}>
+          Turn any content into<br /><span className="gemini-text">structured, intelligent notes</span>
+        </h1>
 
-        <p>
+        <p style={{ position: "relative", zIndex: 1 }}>
           Upload a PDF, paste a YouTube link, or type text directly — our AI
           extracts key points, bullet summaries, and chapter breakdowns in seconds.
         </p>
@@ -129,7 +133,7 @@ export function LandingPage() {
 
       {/* ━━━ PLATFORM OVERVIEW ━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="el-overview">
-        <h2 className="el-reveal">One platform built for every content format</h2>
+        <h2 className="el-reveal">One platform built for <span className="gemini-text">every content format</span></h2>
 
         <div className="el-overview-grid el-reveal d1">
           <div className="el-overview-item">
@@ -203,7 +207,7 @@ export function LandingPage() {
         <div className="el-product-header el-reveal">
           <div>
             <div className="el-product-label">Smart Input</div>
-            <h2>Upload, paste, or type —<br />we handle the rest</h2>
+            <h2>Upload, paste, or type —<br /><span className="gemini-text">we handle the rest</span></h2>
             <div style={{ marginTop: 24 }}>
               <button className="el-btn-primary" onClick={() => navigate("/dashboard")}>
                 Get started {icons.arrow}
@@ -305,7 +309,7 @@ export function LandingPage() {
         <div className="el-product-header el-reveal">
           <div>
             <div className="el-product-label">Smart Output</div>
-            <h2>Structured notes,<br />delivered in seconds</h2>
+            <h2>Structured notes,<br /><span className="gemini-text">delivered in seconds</span></h2>
             <div style={{ marginTop: 24 }}>
               <button className="el-btn-primary" onClick={() => navigate("/dashboard")}>
                 Try it now {icons.arrow}
@@ -445,7 +449,7 @@ export function LandingPage() {
 
       {/* ━━━ CTA ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="el-cta el-reveal">
-        <h2>The smartest AI summarizer platform</h2>
+        <h2>The <span className="gemini-text">smartest AI summarizer</span> platform</h2>
         <p>Start transforming your content into structured, actionable notes today.</p>
         <div className="el-cta-buttons">
           <button className="el-btn-primary" onClick={() => navigate("/dashboard")}>
